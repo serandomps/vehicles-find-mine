@@ -6,7 +6,7 @@ var list = require('vehicles-find');
 
 var user
 
-module.exports = function (sandbox, fn, options) {
+module.exports = function (sandbox, options, done) {
     options = options || {}
     options.user = user.id
     Vehicle.find({
@@ -14,16 +14,16 @@ module.exports = function (sandbox, fn, options) {
         images: '288x162'
     }, function (err, vehicles) {
         if (err) {
-            return fn(true, serand.none);
+            return done(err);
         }
         vehicles.forEach(function (vehicle) {
             vehicle._ = {edit: true}
         })
-        list(sandbox, fn, {
+        list(sandbox, {
             vehicles: vehicles,
             title: 'My Vehicles',
             size: 3
-        });
+        }, done);
     });
 };
 
