@@ -17,8 +17,8 @@ module.exports = function (sandbox, options, done) {
             return done(err);
         }
         vehicles.forEach(function (vehicle) {
-            vehicle._ = {edit: true}
-        })
+            vehicle._.edit = true;
+        });
         list(sandbox, {
             vehicles: vehicles,
             title: 'My Vehicles',
