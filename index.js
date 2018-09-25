@@ -6,7 +6,7 @@ var list = require('vehicles-find');
 
 var user
 
-module.exports = function (sandbox, options, done) {
+module.exports = function (ctx, sandbox, options, done) {
     options = options || {}
     options.user = user.id
     Vehicle.find({
@@ -19,7 +19,7 @@ module.exports = function (sandbox, options, done) {
         vehicles.forEach(function (vehicle) {
             vehicle._.edit = true;
         });
-        list(sandbox, {
+        list(ctx, sandbox, {
             vehicles: vehicles,
             title: 'My Vehicles',
             size: 3
