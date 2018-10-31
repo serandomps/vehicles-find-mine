@@ -4,11 +4,9 @@ var utils = require('utils');
 var Vehicle = require('vehicles-service');
 var list = require('vehicles-find');
 
-var user
-
 module.exports = function (ctx, sandbox, options, done) {
     options = options || {}
-    options.user = user.id
+    options.user = ctx.user && ctx.user.id
     Vehicle.find({
         query: options,
         images: '288x162'
@@ -26,16 +24,3 @@ module.exports = function (ctx, sandbox, options, done) {
         }, done);
     });
 };
-
-serand.on('user', 'ready', function (usr) {
-    user = usr;
-});
-
-serand.on('user', 'logged in', function (usr) {
-    user = usr;
-});
-
-serand.on('user', 'logged out', function (usr) {
-    user = null;
-});
-
