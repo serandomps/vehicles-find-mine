@@ -4,7 +4,8 @@ var utils = require('utils');
 var Vehicle = require('vehicles-service');
 var list = require('vehicles-find');
 
-module.exports = function (ctx, sandbox, options, done) {
+module.exports = function (ctx, container, options, done) {
+    var sandbox = container.sandbox;
     options = options || {}
     options.user = ctx.user && ctx.user.id
     Vehicle.find({
