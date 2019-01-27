@@ -18,7 +18,7 @@ module.exports = function (ctx, container, options, done) {
         vehicles.forEach(function (vehicle) {
             vehicle._.edit = true;
         });
-        list(ctx, sandbox, {
+        list(ctx, container, {
             vehicles: vehicles,
             title: 'My Vehicles',
             size: 3
