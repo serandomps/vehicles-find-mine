@@ -10,7 +10,7 @@ module.exports = function (ctx, container, options, done) {
     options.user = ctx.user && ctx.user.id
     Vehicle.find({
         query: options,
-        images: '288x162'
+        resolution: '288x162'
     }, function (err, vehicles) {
         if (err) {
             return done(err);
